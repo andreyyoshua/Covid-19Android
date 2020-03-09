@@ -1,0 +1,129 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: "androidx.navigation.safeargs.kotlin"
+
+//apply plugin: 'com.google.gms.google-services'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.brid.covid_19"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    dataBinding {
+        enabled = true
+    }
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation deps.kotlin.stdlib
+    implementation deps.support.app_compat
+    implementation deps.support.design
+    implementation deps.support.core_ktx
+    implementation deps.constraint_layout
+    implementation deps.support.recyclerview
+    implementation deps.support.cardview
+
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.1.0'
+    testImplementation 'junit:junit:4.12'
+
+    // Lifecycle
+    implementation deps.lifecycle.runtime
+    implementation deps.lifecycle.viewmodel_ktx
+    implementation deps.lifecycle.livedata_ktx
+    implementation deps.activity.activity_ktx
+
+    // Navigation
+    implementation deps.navigation.runtime_ktx
+    implementation deps.navigation.fragment_ktx
+    implementation deps.navigation.ui_ktx
+
+    // Binding Collection Adapter
+    implementation deps.binding_collection_adapter.core
+    implementation deps.binding_collection_adapter.recyclerview
+    implementation deps.binding_collection_adapter.viewpager2
+    implementation deps.binding_collection_adapter.paging
+
+    // Android Testing Support Library's runner and rules
+    androidTestImplementation deps.atsl.runner
+    androidTestImplementation deps.atsl.rules
+    androidTestImplementation deps.room.testing
+    androidTestImplementation deps.arch_core.testing
+
+    // Espresso UI Testing
+    androidTestImplementation deps.espresso.core
+    androidTestImplementation deps.espresso.contrib
+    androidTestImplementation deps.espresso.intents
+
+    // View Pager Indicator
+    implementation deps.view_pager_indicator
+
+    // OTP View
+    implementation deps.otp_view
+
+    // Circle Image View
+    implementation deps.circle_image_view
+
+    // Retrofit
+    implementation deps.retrofit.runtime
+    implementation deps.retrofit.gson
+    implementation deps.okhttp_logging_interceptor
+
+    // RXJava
+    implementation deps.rxjava2
+    implementation deps.rx_android
+    implementation deps.rx_kotlin
+
+    // Image picker
+    implementation deps.image_picker
+    implementation deps.rx_image_picker
+
+    // Glide
+    implementation deps.glide.runtime
+    annotationProcessor deps.glide.compiler
+
+    // Valifi
+    implementation deps.valifi
+
+    // Firebase
+    implementation deps.firebase.analytics
+
+    // Shimmering
+    implementation deps.shimmering
+
+    // Google
+    implementation deps.play_services_map
+
+    // Chart
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+}
